@@ -1,0 +1,43 @@
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Virtual environment
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Data files
+*.csv
+*.xlsx
+*.xls
+*.json
+*.pickle
+*.h5
+*.pkl
+*.npz
+
+# Logs
+*.log
+
+# IDE files
+.vscode/
+.idea/
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
+
+# Python package distribution
+*.egg-info/
+dist/
+build/
