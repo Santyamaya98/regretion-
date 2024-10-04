@@ -1,6 +1,6 @@
-# Proyecto de Análisis de Datos
+# Proyecto de Análisis de datos y modelos de prediccion 
 
-Este proyecto realiza un análisis de datos sobre un conjunto de vehículos, explorando la relación entre el kilometraje y el precio, y genera gráficas a partir de los datos.
+Este proyecto realiza un análisis de datos sobre un conjunto de vehículos, explorando la relación entre el kilometraje y el precio, y genera gráficas a partir de los datos y prediciones atravez de un modelo de regresion lineal.
 
 ## Instrucciones para ejecutar el programa
 
