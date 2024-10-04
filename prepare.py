@@ -1,8 +1,9 @@
 #data frame
 import pandas as pd
-
+import numpy as np
 # skelearn
-from sklearn.preprocessing import OrdinalEncoder, LabelEncoder
+from sklearn.preprocessing import OrdinalEncoder, LabelEncoder, StandardScaler
+
 #category_encoders
 import category_encoders as ce
 

@@ -1,17 +1,16 @@
 # linear regresion 
 from sklearn.linear_model import LinearRegression
 
-
+import matplotlib.pyplot as plt
+import pandas as pd
 # local 
+
 from prepare import prepare_data, train_frame, test_frame
+from ploter import plot_milage_vs_price
 
-
-print(test_frame)
-print('********'*4)
-print('lets do some magic know')
 train_frame, test_frame = prepare_data(train_frame, test_frame)
 # lets do some linear regression
-# 1. Separate features (X) and target (y)
+# 1. Separate features (X) and target (y)   
 
 def get_model(train_frame):
     X_train = train_frame.drop(columns=['price'])  # Drop the target column 'price'
@@ -33,18 +32,15 @@ def make_predictions(model, test_frame):
     predictions = model.predict(X_test)  # Make predictions
     return predictions
 
+
 if __name__ == '__main__':
-    
     linear_model = get_model(train_frame)
-    # Make predictions on the test dataset
+    
     predictions = make_predictions(linear_model, test_frame)
 
-    # Combine the predictions with the test data for better visualization
-    results = test_frame.copy()  # Create a copy of the test frame
-    results['predicted_price'] = predictions  # Add predictions as a new column
+    sample = pd.read_csv('./sample_submission.csv')
+    sample['price'] = predictions
+    print(sample)
+    sample.to_csv('my_submission.csv', index=False)
 
-    # Display the results
-    print(results[['predicted_price']])  # Print only the predicted prices
-    # If you want to see more features alongside the predictions, you can do:
-    # print(results)  # Uncomment this to see the entire dataframe with predictions
     

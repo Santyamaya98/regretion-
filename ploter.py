@@ -61,13 +61,15 @@ def plot_pairplot(train_frame):
     sns.pairplot(train_frame[['price', 'model_year', 'milage']])
     plt.savefig('plot_pairplot.png', dpi=300)
 
-# Function to plot mileage vs. price
 def plot_milage_vs_price(train_frame):
-    plt.scatter(train_frame['milage'], train_frame['price'], color='orange', alpha=0.5)
+    plt.hexbin(train_frame['milage'], train_frame['price'], gridsize=50, cmap='Oranges', alpha=0.5)
+    plt.colorbar(label='Point Density')
     plt.title('Relationship between Mileage and Price', fontsize=16)
     plt.xlabel('Mileage', fontsize=14)
     plt.ylabel('Price', fontsize=14)
     plt.savefig('plot_milage_vs_price.png', dpi=300)
+
+
 
 # Function to plot accidents vs. price
 def plot_accident_vs_price(train_frame):
@@ -81,3 +83,24 @@ def plot_accident_vs_price(train_frame):
     plt.savefig('plot_accident_vs_price.png', dpi=300)
 
 
+
+import scipy.stats as stats
+
+def qq_plot(train_frame, title='Q-Q Plot of Prices', filename='qq_plot_after.png', figsize=(12, 8)):
+    plt.figure(figsize=figsize)
+    stats.probplot(train_frame['price'], dist="norm", plot=plt)
+    plt.title(title, fontsize=16)
+    plt.xlabel('Theoretical Quantiles', fontsize=12)
+    plt.ylabel('Sample Quantiles', fontsize=12)
+    plt.grid(True)
+    
+    plt.savefig(filename, dpi=300)
+    plt.close()
+
+
+
+
+
+
+
+    
